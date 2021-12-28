@@ -48,7 +48,7 @@ if kind == 1:
 elif kind == 2:
     # playlist
     url = input(
-        "Enter Playlist_URL:   ")  # Link will be downloaded  # https://www.youtube.com/watch?v=NkOXBrHbqSs&list=PLMm8EjqH1EFV-jECqtMxeVMDoVkV_kJDY
+        "Enter Playlist_URL:   ")  # Link will be downloaded  # https://www.youtube.com/watch?v=1ybX_oVEbzc&list=PLMm8EjqH1EFWWKAeZFMmnbvnDML6NhY35
     playlist = Playlist(url)  # create object
 
     quality = int(input('for height quality press 1  for low quality press 2  for audio only press 3   '))
