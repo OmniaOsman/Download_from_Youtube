@@ -72,3 +72,5 @@ elif kind == 2:
             i.streams.get_audio_only().download(output_path='c://Users/C.M/Downloads/' + folderName)
             i.register_on_complete_callback(completedAudio())
             count = + 1
+
+    print('Total videos: ', count, 'video')
