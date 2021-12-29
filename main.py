@@ -11,6 +11,23 @@ def completedAudio():
     print('Your audio downloaded successfully')
 
 
+def highQuality():
+    print('Please Wait...')
+    video.streams.get_highest_resolution().download(output_path='c://Users/C.M/Downloads', filename=filename)
+    video.register_on_complete_callback(completedVideo())
+
+
+def lowQuality():
+    print('Please Wait...')
+    video.streams.get_lowest_resolution().download(output_path='c://Users/C.M/Downloads', filename=filename)
+    video.register_on_complete_callback(completedVideo())
+
+def audio():
+    print('Please Wait...')
+    video.streams.get_audio_only().download(output_path='c://Users/C.M/Downloads', filename=filename)
+    video.register_on_complete_callback(completedAudio())
+
+
 if kind == 1:
 
     url = input("Enter video_URL:   ")  # Link will be downloaded  # https://www.youtube.com/watch?v=FxDlv1XKhD0
@@ -24,22 +41,15 @@ if kind == 1:
     filename = input('Enter filename:   ')
 
     if quality == 1:
-        print('Please Wait...')
-        video.streams.get_highest_resolution().download(output_path='c://Users/C.M/Downloads', filename=filename)
-        video.register_on_complete_callback(completedVideo())
+        highQuality()
     elif quality == 2:
-        print('Please Wait...')
-        video.streams.get_lowest_resolution().download(output_path='c://Users/C.M/Downloads', filename=filename)
-        video.register_on_complete_callback(completedVideo())
+        lowQuality()
     elif quality == 3:
-        print('Please Wait...')
-        video.streams.get_audio_only().download(output_path='c://Users/C.M/Downloads', filename=filename)
-        video.register_on_complete_callback(completedAudio())
+        audio()
 
 elif kind == 2:
     # playlist
-    url = input(
-        "Enter Playlist_URL:   ")  # Link will be downloaded  # https://www.youtube.com/watch?v=1ybX_oVEbzc&list=PLMm8EjqH1EFWWKAeZFMmnbvnDML6NhY35
+    url = input("Enter Playlist_URL:   ")  # Link will be downloaded  # https://www.youtube.com/watch?v=1ybX_oVEbzc&list=PLMm8EjqH1EFWWKAeZFMmnbvnDML6NhY35
     playlist = Playlist(url)  # create object
 
     quality = int(input('for height quality press 1  for low quality press 2  for audio only press 3   '))
@@ -50,17 +60,11 @@ elif kind == 2:
 
     for i in playlist.videos:
         if quality == 1:
-            print('Please Wait...')
-            i.streams.get_highest_resolution().download(output_path='c://Users/C.M/Downloads/' + folderName)
-            i.register_on_complete_callback(completedVideo())
+            highQuality()
         elif quality == 2:
-            print('Please Wait...')
-            i.streams.get_lowest_resolution().download(output_path='c://Users/C.M/Downloads/' + folderName)
-            i.register_on_complete_callback(completedVideo())
+            lowQuality()
         elif quality == 3:
-            print('Please Wait...')
-            i.streams.get_audio_only().download(output_path='c://Users/C.M/Downloads/' + folderName)
-            i.register_on_complete_callback(completedAudio())
+            audio()
 
         count = count + 1
 
