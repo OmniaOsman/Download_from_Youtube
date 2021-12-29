@@ -23,15 +23,6 @@ if kind == 1:
     quality = int(input('for height quality press 1  for low quality press 2  for audio only press 3   '))
     filename = input('Enter filename:   ')
 
-
-    def completedVideo():
-        print('Your video downloaded successfully')
-
-
-    def completedAudio():
-        print('Your audio downloaded successfully')
-
-
     if quality == 1:
         print('Please Wait...')
         video.streams.get_highest_resolution().download(output_path='c://Users/C.M/Downloads', filename=filename)
